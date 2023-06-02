@@ -9,11 +9,8 @@ To get started with the Hand-Controller project, follow the instructions below.
 Prerequisites
 
 Python (version 3.6 or later)
-
 OpenCV library
-
 Numpy library
-
 Installation
 
 Clone or download this repository to your local machine. Use the classes in pycv - Controller folder.
