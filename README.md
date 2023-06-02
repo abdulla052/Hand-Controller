@@ -16,4 +16,4 @@ Numpy library
 
 Installation
 
-Clone or download this repository to your local machine.
+Clone or download this repository to your local machine. Use the classes in pycv - Controller folder.
