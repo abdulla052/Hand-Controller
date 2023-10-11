@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(22, 24, 21);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --main-blue: #5F7FFF;
+    /* --main-blue: #04a1d1; */
+  }
+  
+  p {
+    color: #ccc;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
