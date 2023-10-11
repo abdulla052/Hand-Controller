@@ -52,7 +52,7 @@ article {
   }
 
   .vd-container {
-    height: calc(0.5625 * 65vw);
+    height: calc(0.5625 * 70vw);
   }
 }
 
@@ -61,3 +61,8 @@ article {
     width: 85%;
   }
 }
+
+@media (max-width: 410px) {
+  .vd-container {
+    height: calc(0.5625 * 85vw);
+  }
