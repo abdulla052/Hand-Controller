@@ -48,7 +48,7 @@
   top: 5rem;
   height: 0;
   width: 300px;
-  background: rgba(20, 20, 20, 0.6);
+  background: rgba(20, 20, 20, 0.9);
   backdrop-filter: blur(15px);
   border-radius: 10px;
   overflow: hidden;
