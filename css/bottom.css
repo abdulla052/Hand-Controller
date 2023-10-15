@@ -53,15 +53,3 @@ footer p:nth-child(2) {
   font-weight: bold;
   /* color: #6c757d; */
 }
-
-@media (max-width: 1000px) {
-  .bottom-container {
-    width: 70%;
-  }
-}
-
-@media (max-width: 680px) {
-  .bottom-container {
-    width: 85%;
-  }
-}
