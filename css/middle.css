@@ -47,18 +47,8 @@ article {
 }
 
 @media (max-width: 1000px) {
-  article {
-    width: 70%;
-  }
-
   .vd-container {
     height: calc(0.5625 * 70vw);
-  }
-}
-
-@media (max-width: 680px) {
-  article {
-    width: 85%;
   }
 }
 
