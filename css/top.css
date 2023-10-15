@@ -86,9 +86,6 @@
     display: block;
   }
 
-  .nav-bar {
-    width: 70%;
-  }
 }
 
 @media (max-width: 680px) {
@@ -96,10 +93,6 @@
     right: 7%;
     left: 7%;
     width: unset;
-  }
-
-  .nav-bar {
-    width: 85%;
   }
 
   .web-logo {
