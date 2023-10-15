@@ -32,7 +32,7 @@ body {
 }
 
 @media (max-width: 680px) {
-  .all-containers {
+  body .all-containers {
     width: 85%;
   }
 }
