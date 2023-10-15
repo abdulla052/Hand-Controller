@@ -20,3 +20,19 @@ body {
     margin-bottom: 30px;
     line-height: 1.5;
   }
+
+.all-containers {
+  width: 54%;
+}
+
+@media (max-width: 1000px) {
+  .all-containers {
+    width: 70%;
+  }
+}
+
+@media (max-width: 680px) {
+  .all-containers {
+    width: 85%;
+  }
+}
