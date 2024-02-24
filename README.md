@@ -1,5 +1,5 @@
 # Hand-Controller
-Welcome to the Hand-Controller repository! This is a computer vision project written in Python that allows youto control games using hand gestures without the need for any additional equipment.
+Welcome to the Hand-Controller repository! This is a computer vision project written in Python that allows you to control games using hand gestures without the need for any additional equipment.
 
 ## Description
 The Hand-Controller project utilizes computer vision techniques to track and interpret hand movements, enabling you to interact with games and applications. By using your hands as input, you can control various aspects of the game or application without the need for a traditional controller or keyboard.
