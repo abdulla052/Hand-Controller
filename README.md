@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Hand-Controller
 Welcome to the Hand-Controller repository! This is a computer vision project written in Python that allows you to control games using hand gestures without the need for any additional equipment.
 
@@ -55,12 +54,3 @@ Contributions to the Hand-Controller project are welcome! If you find any issues
 ### License 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 =======
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
->>>>>>> 60d41bd (first commit)
