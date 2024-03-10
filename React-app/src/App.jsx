@@ -1,9 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+/* eslint-disable no-unused-vars */
+// import { useState } from "react";
+import Header from "./Header";
+import Body from "./Body";
+import Footer from "./Footer";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header />
+
+      <Body />
+
+      <Footer />
+    </>
+  );
 }
 
 export default App;
