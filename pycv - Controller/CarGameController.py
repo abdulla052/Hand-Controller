@@ -3,13 +3,14 @@ import keyinput
 import cv2
 import mediapipe as mp
 import os
+# from imutils.video import VideoStream
 
 
-game_path = r"C:/Program Files (x86)/GameTop.com/Off-road Super Racing/game.exe"
+# game_path = r"C:\Program Files (x86)\GameTop.com\Off-road Super Racing\game-shell.exe"
 
 
 def game():
-    os.startfile(game_path)
+    # os.startfile(game_path)
     mp_drawing = mp.solutions.drawing_utils
     mp_drawing_styles = mp.solutions.drawing_styles
     mp_hands = mp.solutions.hands
@@ -17,6 +18,7 @@ def game():
     font = cv2.FONT_HERSHEY_SIMPLEX
     # 0 For webcam input:
     cap = cv2.VideoCapture(0)
+    # cap = VideoStream(src=0).start()
 
     with mp_hands.Hands(
             model_complexity=0,
@@ -95,42 +97,72 @@ def game():
 
                 l = (int(math.sqrt((co[0][0] - co[1][0]) ** 2 * (co[0][1] - co[1][1]) ** 2)) - 150) // 2
                 cv2.line(image, (int(xa), int(ya)), (int(xb), int(yb)), (195, 255, 62), 20)
-                if co[0][0] > co[1][0] and co[0][1] > co[1][1] and co[0][1] - co[1][1] > 65:
+
+                drift = False
+                vertical_top_threshold = int(imageHeight / 3)
+                if co[0][1] < vertical_top_threshold and co[1][1] < vertical_top_threshold:
+                    # Both hands are at the top of the frame
+                    print("Drift")
+                    drift = True
+                    keyinput.release_key('w')
+                    keyinput.press_key('s')
+
+                #Both hands are at the bottom of the frame
+                vertical_threshold = int(2 * imageHeight / 3)
+                if co[0][1] > vertical_threshold and co[1][1] > vertical_threshold:
+                    print("Nitro.")
+                    keyinput.press_key('space')
+                else:
+                    keyinput.release_key('space')
+
+
+                if co[0][0] > co[1][0] and co[0][1] > co[1][1] and co[0][1] - co[1][1] > 65:  ### 65 -------- 65 changed
                     print("Turn left.")
-                    keyinput.release_key('s')
+                    if drift == False:
+                        keyinput.release_key('s')
                     keyinput.release_key('d')
                     keyinput.press_key('a')
+
                     cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
 
 
-                elif co[1][0] > co[0][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:
+                elif co[1][0] > co[0][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:  ### 65 -------- 65
                     print("Turn left.")
-                    keyinput.release_key('s')
+                    if drift == False:
+                        keyinput.release_key('s')
                     keyinput.release_key('d')
                     keyinput.press_key('a')
+
                     cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
 
 
-                elif co[0][0] > co[1][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:
+                elif co[0][0] > co[1][0] and co[1][1] > co[0][1] and co[1][1] - co[0][1] > 65:  ### 65 -------- 65
                     print("Turn right.")
-                    keyinput.release_key('s')
+                    if drift == False:
+                        keyinput.release_key('s')
                     keyinput.release_key('a')
                     keyinput.press_key('d')
+
                     cv2.line(image, (int(xap), int(yap)), (int(xm), int(ym)), (195, 255, 62), 20)
 
-                elif co[1][0] > co[0][0] and co[0][1] > co[1][1] and co[0][1] - co[1][1] > 65:
+                elif co[1][0] > co[0][0] and co[0][1] > co[1][1] and co[0][1] - co[1][1] > 65:  ### 65 -------- 65
                     print("Turn right.")
-                    keyinput.release_key('s')
+                    if drift == False:
+                        keyinput.release_key('s')
                     keyinput.release_key('a')
                     keyinput.press_key('d')
+
                     cv2.line(image, (int(xap), int(yap)), (int(xm), int(ym)), (195, 255, 62), 20)
 
                 else:
-                    print("keeping straight")
-                    keyinput.release_key('s')
-                    keyinput.release_key('a')
-                    keyinput.release_key('d')
-                    keyinput.press_key('w')
+                    if drift == False:
+                        print("keeping straight")
+                        keyinput.release_key('s')
+                        keyinput.release_key('a')
+                        keyinput.release_key('d')
+                        keyinput.press_key('w')
+
+                    drift = False
                     if ybp > yap:
                         cv2.line(image, (int(xbp), int(ybp)), (int(xm), int(ym)), (195, 255, 62), 20)
                     else:
@@ -150,6 +182,7 @@ def game():
                 keyinput.release_key('w')
                 keyinput.release_key('s')
 
+
             cv2.imshow("Detector", cv2.flip(image, 1))
             # cv2.moveWindow("Detector", 0, imageHeight + 200)
             cv2.setWindowProperty("Detector", cv2.WND_PROP_TOPMOST, 1)
@@ -158,6 +191,3 @@ def game():
             if cv2.waitKey(5) & 0xFF == ord('q'):
                 break
     cap.release()
-
-
-
