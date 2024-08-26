@@ -98,15 +98,17 @@ def game():
                 l = (int(math.sqrt((co[0][0] - co[1][0]) ** 2 * (co[0][1] - co[1][1]) ** 2)) - 150) // 2
                 cv2.line(image, (int(xa), int(ya)), (int(xb), int(yb)), (195, 255, 62), 20)
 
+                # Drift
                 drift = False
+                # Both hands are at the top of the frame
                 vertical_top_threshold = int(imageHeight / 3)
                 if co[0][1] < vertical_top_threshold and co[1][1] < vertical_top_threshold:
-                    # Both hands are at the top of the frame
                     print("Drift")
                     drift = True
                     keyinput.release_key('w')
                     keyinput.press_key('s')
 
+                #Nitro
                 #Both hands are at the bottom of the frame
                 vertical_threshold = int(2 * imageHeight / 3)
                 if co[0][1] > vertical_threshold and co[1][1] > vertical_threshold:
